@@ -1,0 +1,28 @@
+<div class="d-flex align-items-center content ">
+
+  <div class="block-content mx-4 position-relative d-flex flex-column align-items-center justify-content-center"
+    [class.single-root]="block?.listBlocks?.length === 1" [class.last-root]="!block?.listBlocks?.length">
+    <div class="block-content-before"></div>
+    <div>{{block.title}}</div>
+    <div>{{block.type}}</div>
+    <div>{{block.status}}</div>
+    <div class="feature-block">
+      <span class="feature-block-toggle" (click)="handleCreate($event)" id="createNewButton" data-bs-toggle="modal"
+        data-bs-target="#createNewModal">+</span>
+      <span class="feature-block-create" (click)="handleToggle($event)">-</span>
+    </div>
+  </div>
+  <!-- modal -->
+
+
+  <div *ngIf="block?.listBlocks">
+    <div *ngFor="let item of block.listBlocks" class="connector d-flex">
+
+      <div class="line-vertical"></div>
+
+      <app-block [block]="item"></app-block>
+      <div class="connector-line d-block"></div>
+
+    </div>
+  </div>
+</div>

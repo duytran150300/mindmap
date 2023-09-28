@@ -1,0 +1,217 @@
+<div class="container ">
+  <h1 class="c-article__title text-center mt-5">
+    MINDMAP
+  </h1>
+</div>
+<!-- <div class="container">
+  <div class="row">
+    <div class="create-diagram mt-5">
+      <button id="createNewButton" class="btn btn-outline-success" data-bs-toggle="modal"
+        data-bs-target="#createNewModal">Tạo mới +</button>
+    </div>
+    <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="createNewModalLabel">Mời nhập thông tin</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form class="row g-3 needs-validation was-validated" [formGroup]="form" (ngSubmit)="onSubmit($event)"
+              novalidate>
+
+              <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Title</label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="validationCustomUsername"
+                    aria-describedby="inputGroupPrepend" formControlName="title" required>
+                  <div class="invalid-feedback">
+                    Please choose a username.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">Status</label>
+                <input type="text" class="form-control" id="validationCustom03" formControlName="status" required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 d-flex justify-content-end">
+                <button class="btn btn-primary " type="submit" data-bs-dismiss="modal">Submit
+                  form</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="overlay" [class.active]="showBlock">
+    <div class="block-container">
+      <div class="block">
+        <div class="title">
+          <div class="create-diagram mt-5">
+            <button id="createNewButton" class="btn btn-outline-success" data-bs-toggle="modal"
+              data-bs-target="#createNewModal">Title</button>
+          </div>
+          <div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="createNewModalLabel">Mời nhập thông tin</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form class="row g-3 needs-validation was-validated" [formGroup]="form" (ngSubmit)="onSubmit($event)"
+                    novalidate>
+
+                    <div class="col-md-4">
+                      <label for="validationCustomUsername" class="form-label">Title</label>
+                      <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="validationCustomUsername"
+                          aria-describedby="inputGroupPrepend" formControlName="title" required>
+                        <div class="invalid-feedback">
+                          Please choose a username.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="validationCustom03" class="form-label">Status</label>
+                      <input type="text" class="form-control" id="validationCustom03" formControlName="status" required>
+                      <div class="invalid-feedback">
+                        Please provide a valid city.
+                      </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                          Agree to terms and conditions
+                        </label>
+                        <div class="invalid-feedback">
+                          You must agree before submitting.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Submit form</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="empty-div"></div>
+      </div>
+    </div>
+  </div>
+ -->
+<div class="container p-5 d-flex align-items-center">
+
+  <div
+    class="block-root position-relative col-md-4 col-md-4 d-flex flex-column align-items-center justify-content-center">
+    <div>{{listBlock.title}}</div>
+    <div>{{listBlock.type}}</div>
+    <div>{{listBlock.status}}</div>
+    <div class="feature-block">
+      <span class="feature-block-toggle" id="createNewButton" data-bs-toggle="modal"
+        data-bs-target="#createNewModal">+</span>
+      <span class="feature-block-create" (click)="handleToggle($event)">-</span>
+    </div>
+    <div class="block-root-after" *ngIf="isBlockTreeVisible"></div>
+  </div>
+  <div class="block-tree d-flex flex-column px-5 col-md-8 col-8 position-relative " *ngIf="isBlockTreeVisible">
+    <div *ngFor="let block of listBlock.listBlocks" class="trunk">
+      <div class=" tree d-flex ">
+        <app-block [block]="block"></app-block>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="createNewModal" tabindex="-1" aria-labelledby="createNewModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createNewModalLabel">Mời nhập thông tin</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-3 needs-validation was-validated" [formGroup]="form" (ngSubmit)="onSubmit($event)"
+          novalidate>
+
+          <div class="col-md-6">
+            <label for="validationCustomUsername" class="form-label">Title</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend"
+                formControlName="title" required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">Status</label>
+            <input type="text" class="form-control" id="validationCustom03" formControlName="status" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">Type</label>
+            <input type="text" class="form-control" id="validationCustom03" formControlName="status" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal">Submit form</button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+</div>

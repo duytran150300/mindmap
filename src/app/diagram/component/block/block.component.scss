@@ -1,0 +1,125 @@
+.block-content {
+  margin: 20px 0;
+  border: 1px solid #bdb813;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.block-content-before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 24px;
+  left: 100%;
+  margin-left: 15px;
+  background-color: aqua;
+  transform: translateX(-50%);
+  top: 49%;
+}
+.block-content::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 22px;
+  right: 100%;
+  margin-right: 4px;
+  background-color: aqua;
+  transform: translateY(-50%);
+  top: 50%;
+}
+.connector {
+  flex: 1 0 auto;
+  position: relative;
+}
+.connector::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: aqua;
+  width: 2px;
+  height: 50%;
+  bottom: 0%;
+}
+.connector::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: aqua;
+  width: 2px;
+  height: 50%;
+  top: 0%;
+}
+.connector:last-child::before {
+  display: none;
+}
+.connector:first-child::after {
+  display: none;
+}
+.single-root .single-root::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 20px;
+  right: 100%;
+  margin-left: 6px;
+  background-color: aqua;
+  transform: translateY(-50%);
+  top: 50%;
+  border-top-right-radius: 0 0 0 10px;
+  border-bottom-right-radius: 0 0 0 10px;
+}
+.last-root .block-content-before,
+.last-root .feature-block-create {
+  display: none;
+}
+
+.feature-block-toggle {
+  content: "+";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #1f8768;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  right: 89%;
+  transform: translateY(-50%);
+  z-index: 999;
+  opacity: 0.4;
+}
+.feature-block-create {
+  content: "+";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #cfc109;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 89%;
+  transform: translateY(-50%);
+  z-index: 999;
+  opacity: 0.4;
+}
+.feature-block-create:hover,
+.feature-block-toggle:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.block-content::before.hidden {
+  display: none;
+}

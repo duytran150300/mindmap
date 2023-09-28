@@ -1,0 +1,196 @@
+// Colors
+$page-background-color: #2f3c4f;
+$gradient-color-1: #f57170;
+$gradient-color-2: #10ddc2;
+
+// Keyframes
+@keyframes animationgradienttitle {
+  0% {
+    background-position: 0 1600px;
+  }
+  100% {
+    background-position: 1600px 0;
+  }
+}
+
+.c-article__title {
+  font-size: 63px;
+  letter-spacing: 6px;
+  color: #fc3735;
+  font-family: "Alfa Slab One", cursive;
+  background: -webkit-linear-gradient(
+    left,
+    $gradient-color-1,
+    $gradient-color-2,
+    $gradient-color-1
+  );
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-duration: 1s;
+  animation-name: animationgradienttitle;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+.block-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.block {
+  border: 1px solid #000;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.empty-div {
+  border: 1px solid #000;
+}
+.node {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.new {
+  background-color: red;
+
+  span {
+    color: white;
+  }
+}
+
+.done {
+  background-color: green;
+}
+
+.doing {
+  background-color: blue;
+}
+
+.inactive {
+  background-color: yellow;
+}
+.mind-map ul {
+  padding-left: 20px;
+}
+
+.mind-map ul li {
+  list-style-type: none;
+}
+
+.mind-map ul li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  border-left: 1px solid #ccc;
+  height: 100%;
+}
+::ng-deep {
+  #createNewModal {
+    background: #ffffff42;
+  }
+}
+.block-root {
+  margin: 20px 0;
+  border: 1px solid #bdb813;
+  border-radius: 10px;
+  width: 100px;
+}
+.block-root-after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 48px;
+  left: 100%;
+  margin-left: 25px;
+  background-color: aqua;
+  transform: translateX(-50%);
+  top: 50%;
+  border-top-right-radius: 0 0 0 10px;
+  border-bottom-right-radius: 0 0 0 10px;
+}
+.trunk::after {
+  content: "";
+  position: absolute;
+  display: block;
+  background-color: aqua;
+  width: 2px;
+  height: 55%;
+  top: 40%;
+}
+
+.feature-block-toggle {
+  content: "+";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #1f8768;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  right: 89%;
+  transform: translateY(-50%);
+  z-index: 999;
+  opacity: 0.4;
+}
+.feature-block-create {
+  content: "+";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #cfc109;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 89%;
+  transform: translateY(-50%);
+  z-index: 999;
+  opacity: 0.4;
+}
+.feature-block-create:hover,
+.feature-block-toggle:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.block-content::before.hidden {
+  display: none;
+}
